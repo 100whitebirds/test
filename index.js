@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 async function startScraping(url) {
   puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    executablePath: '/usr/bin/google-chrome',
+    executablePath: puppeteer.executablePath(),
     headless: true,
     targetFilter: (target) => target.type() !== 'other',
   }).then(async (browser) => {
