@@ -1,9 +1,9 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 
 async function startScraping(url) {
   puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    executablePath: puppeteer.executablePath(),
+    executablePath: '/usr/bin/google-chrome',
     headless: true,
     targetFilter: (target) => target.type() !== 'other',
   }).then(async (browser) => {
